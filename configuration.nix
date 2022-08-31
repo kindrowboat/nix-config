@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./kindrobot-desktop.nix
     ];
 
   # Bootloader.
@@ -20,7 +19,7 @@
       config.boot.kernelPackages.v4l2loopback.out
   ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "flippy"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -47,6 +46,8 @@
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+    xkbOptions = "caps:swapescape";
+
   };
 
   # Enable CUPS to print documents.
@@ -87,15 +88,18 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    age
     byobu
     emacs
     firefox
     git
     kate
+    mosh
     mu
     neovim
     qutebrowser
     silver-searcher
+    sops
     tmux
     unzip
     wget
@@ -111,6 +115,8 @@
   
   programs.fish.enable = true;
 
+  programs.command-not-found.enable = false;
+  
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

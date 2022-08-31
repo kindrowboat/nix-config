@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/1b779d80-b37e-47d1-a0be-7293241409c1";
+    { device = "/dev/disk/by-uuid/b3512142-b10c-4f68-9a9d-8ae793c6efc8";
       fsType = "ext4";
     };
 
@@ -33,7 +33,4 @@
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  hardware.bluetooth.enable = true;
-
 }
