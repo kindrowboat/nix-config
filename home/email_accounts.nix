@@ -41,6 +41,11 @@ in
       passwordCommand = "pass show muw/apocryphalauthor@gmail.com";
       imap.host = "imap.gmail.com";
       smtp.host = "smpt.gmail.com";
+      mbsync = {
+        enable = true;
+        create = "maildir";
+        patterns = ["INBOX" "Drafts" "Trash" "Sent" "Archives.*"];
+      };
     };
   };
 }
