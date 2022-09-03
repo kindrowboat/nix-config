@@ -35,4 +35,5 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.bluetooth.enable = true;
+  services.xserver.wacom.enable = true;
 }
