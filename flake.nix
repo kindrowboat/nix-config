@@ -26,12 +26,13 @@
 	    nixpkgs.overlays = [ overlay-unstable ];
 	  })
           ./configuration.nix
+	  ./virtualbox.nix
 	  home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
 	      ./home/kindrobot.nix
-        ./home/email_accounts.nix
+              ./home/email_accounts.nix
 	    ];
 	  }
         ];
