@@ -42,39 +42,66 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+(after! mu4e
+(setq mail-user-agent             'mu4e-user-agent
+      message-send-mail-function  'message-send-mail-with-sendmail
+      sendmail-program            (executable-find "msmtp")
+      mu4e-context-policy 'ask-if-none
+      mu4e-compose-context-policy 'always-ask)
+
 (set-email-account! "stef"
   '((mu4e-sent-folder       . "/stef/Sent Mail")
     (mu4e-drafts-folder     . "/stef/Drafts")
     (mu4e-trash-folder      . "/stef/Trash")
     (mu4e-refile-folder     . "/stef/Archives/2022")
+    (mu4e-maildir-shortcuts . (("/stef/INBOX" . ?i)
+                               ("/stef/Drafts"         . ?d)
+                               ("/stef/Sent" . ?s)))
     (smtpmail-smtp-user     . "stef@kindrobot.ca")
-    (mu4e-compose-signature . "---\nStef Dunlap (she/her)"))
+    (user-mail-address      . "stef@kindrobot.ca")
+    (user-full-name         . "Stef Dunlap")
+    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
 (set-email-account! "hello"
   '((mu4e-sent-folder       . "/hello/Sent Mail")
     (mu4e-drafts-folder     . "/hello/Drafts")
     (mu4e-trash-folder      . "/hello/Trash")
     (mu4e-refile-folder     . "/hello/Archives/2022")
+    (mu4e-maildir-shortcuts . (("/hello/INBOX" . ?i)
+                               ("/hello/Drafts"         . ?d)
+                               ("/hello/Sent" . ?s)))
     (smtpmail-smtp-user     . "hello@kindrobot.ca")
-    (mu4e-compose-signature . "---\nStef Dunlap (she/her)"))
+    (user-mail-address      . "hello@kindrobot.ca")
+    (user-full-name         . "Stef Dunlap")
+    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
 (set-email-account! "team"
   '((mu4e-sent-folder       . "/team/Sent Mail")
     (mu4e-drafts-folder     . "/team/Drafts")
     (mu4e-trash-folder      . "/team/Trash")
     (mu4e-refile-folder     . "/team/Archives/2022")
+    (mu4e-maildir-shortcuts . (("/team/INBOX" . ?i)
+                               ("/team/Drafts"         . ?d)
+                               ("/team/Sent" . ?s)))
     (smtpmail-smtp-user     . "kindrobot@tilde.team")
-    (mu4e-compose-signature . "---\nStef Dunlap (she/her)"))
+    (user-mail-address      . "kindrobot@tilde.team")
+    (user-full-name         . "Stef Dunlap")
+    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
 (set-email-account! "gmail"
   '((mu4e-sent-folder       . "/gmail/Sent Mail")
     (mu4e-drafts-folder     . "/gmail/Drafts")
     (mu4e-trash-folder      . "/gmail/Trash")
     (mu4e-refile-folder     . "/gmail/Archives/2022")
+    (mu4e-maildir-shortcuts . (("/team/INBOX" . ?i)
+                               ("/team/Drafts"         . ?d)
+                               ("/team/Sent" . ?s)))
     (smtpmail-smtp-user     . "kindrobot@tilde.team")
-    (mu4e-compose-signature . "---\nStef Dunlap (she/her)"))
+    (user-mail-address      . "kindrobot@tilde.team")
+    (user-full-name         . "Stef Dunlap")
+    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
-
+)
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
