@@ -93,6 +93,7 @@
     emacs
     firefox
     git
+    htop
     kate
     mosh
     mu

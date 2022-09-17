@@ -4,14 +4,18 @@
   home.packages = [
     pkgs.barrier
     pkgs.keepassxc
+    pkgs.krita
     pkgs.mgba
     pkgs.mu
     pkgs.nextcloud-client
     pkgs.obs-studio
     pkgs.pass
+    pkgs.slack
     pkgs.source-code-pro
     pkgs.zoom-us
     pkgs.zsh
+
+    pkgs.rpi-imager
   ];
   home.file.doom-d = {
     source = ./doom.d;
