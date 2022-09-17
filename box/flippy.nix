@@ -13,6 +13,8 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  networking.hostName = "flippy"; # Define your hostname.
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/b3512142-b10c-4f68-9a9d-8ae793c6efc8";
       fsType = "ext4";

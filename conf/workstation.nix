@@ -5,10 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -19,7 +16,6 @@
       config.boot.kernelPackages.v4l2loopback.out
   ];
 
-  networking.hostName = "flippy"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
