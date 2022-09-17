@@ -39,5 +39,25 @@
           }
         ];
       };
+      nixosConfigurations.y500 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ({ config, pkgs, ... }: { 
+            nixpkgs.overlays = [ overlay-unstable ];
+          })
+          ./conf/workstation.nix
+          ./box/y500.nix
+          ./app/virtualbox.nix
+          ./app/teamviewer.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.kindrobot.imports = [
+              ./home/kindrobot.nix
+              ./home/email_accounts.nix
+            ];
+          }
+        ];
+      };
     };
 }
