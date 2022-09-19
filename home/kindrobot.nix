@@ -2,20 +2,15 @@
 {
   home.stateVersion = "22.11";
   home.packages = [
-    pkgs.barrier
-    pkgs.keepassxc
-    pkgs.krita
-    pkgs.mgba
+    pkgs.age
+    pkgs.htop
+    pkgs.mosh
     pkgs.mu
-    pkgs.nextcloud-client
-    pkgs.obs-studio
+    pkgs.neovim
     pkgs.pass
-    pkgs.slack
-    pkgs.source-code-pro
-    pkgs.zoom-us
-    pkgs.zsh
-
-    pkgs.rpi-imager
+    pkgs.silver-searcher
+    pkgs.tmux
+    pkgs.wget
   ];
   home.file.doom-d = {
     source = ./doom.d;
@@ -44,6 +39,5 @@
     };
   };
   programs.z-lua.enable = true;
-  services.emacs.enable = true;
 }
 

@@ -84,22 +84,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    age
     byobu
-    emacs
     firefox
     git
-    htop
     kate
-    mosh
-    mu
-    neovim
     qutebrowser
-    silver-searcher
     sops
-    tmux
     unzip
-    wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
