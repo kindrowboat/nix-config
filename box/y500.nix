@@ -38,4 +38,16 @@
   # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # nextcloud setup
+  system.activationScripts.ensure-postgres-datadir = {
+    text = ''
+      mkdir -p /var/testpsql
+      chown postgres:postgres /var/testpsql
+    '';
+  };
+  services.postgresql = {
+    enable = true;
+    dataDir = "/var/testpsql";
+  };
 }
