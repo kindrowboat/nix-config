@@ -15,19 +15,42 @@
 
   networking.hostName = "y500"; # Define your hostname.
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b69c84fb-7123-4730-aa36-2af77653e33a";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/b69c84fb-7123-4730-aa36-2af77653e33a";
+    fsType = "ext4";
+  };
+  fileSystems."/boot/efi" = {
+    device = "/dev/disk/by-uuid/88FB-029A";
+    fsType = "vfat";
+  };
+  fileSystems."/mnt/Gabriel" = {
+    device = "/dev/disk/by-label/Gabriel";
+    fsType = "exfat";
+    options = ["nofail"];
+  };
+  fileSystems."/mnt/Henry" = {
+    device = "/dev/disk/by-label/Henry";
+    fsType = "exfat";
+    options = ["nofail"];
+  };
+  fileSystems."/mnt/Isabela" = {
+    device = "/dev/disk/by-label/Isabela";
+    fsType = "exfat";
+    options = ["nofail"];
+  };
+  fileSystems."/mnt/Inky" = {
+    device = "/dev/disk/by-label/Inky";
+    fsType = "ext4";
+    options = ["nofail"];
+  };
+  fileSystems."/mnt/J" = {
+    device = "/dev/disk/by-label/J";
+    fsType = "ext4";
+    options = ["nofail"];
+  };
 
-  fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/88FB-029A";
-      fsType = "vfat";
-    };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/fe6fc74f-0bd9-484e-9b6c-781b6de57b7e"; }
-    ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/fe6fc74f-0bd9-484e-9b6c-781b6de57b7e"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -50,4 +73,14 @@
     enable = true;
     dataDir = "/var/testpsql";
   };
+
+  networking.firewall.allowedTCPPorts = [
+    2049 #nfs
+  ];
+
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /mnt/Inky/nfs 192.168.1.0/24(rw,sync,no_subtree_check,no_root_squash)
+  '';
+
 }
