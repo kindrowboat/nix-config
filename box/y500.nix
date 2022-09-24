@@ -23,6 +23,44 @@
     device = "/dev/disk/by-uuid/88FB-029A";
     fsType = "vfat";
   };
+
+  swapDevices = [ { device = "/dev/disk/by-uuid/fe6fc74f-0bd9-484e-9b6c-781b6de57b7e"; }];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+
+  services.postgresql = {
+    enable = true;
+    dataDir = "/mnt/Inky/postgresql/";
+  };
+  services.nextcloud = {
+    enable = true;
+    datadir = "/mnt/Inky/nc_data";
+    hostName = "nc.kindrobot.ca";
+    https = true;
+    config = {
+      dbtype = "pgsql";
+      dbpassFile = "/var/nextcloud-secrets/db_password.txt";
+      adminuser = "admin";
+      adminpassFile = "/var/nextcloud-secrets/admin_password.txt";
+      overwriteProtocol = "https";
+    };
+  };
+  # ensure that postgres is running *before* running the setup
+  systemd.services."nextcloud-setup" = {
+    requires = ["postgresql.service"];
+    after = ["postgresql.service"];
+  };
+
+  # nfs setup
   fileSystems."/mnt/Gabriel" = {
     device = "/dev/disk/by-label/Gabriel";
     fsType = "exfat";
@@ -48,39 +86,12 @@
     fsType = "ext4";
     options = ["nofail"];
   };
-
-
-  swapDevices = [ { device = "/dev/disk/by-uuid/fe6fc74f-0bd9-484e-9b6c-781b6de57b7e"; }];
-
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
-
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # nextcloud setup
-  system.activationScripts.ensure-postgres-datadir = {
-    text = ''
-      mkdir -p /var/testpsql
-      chown postgres:postgres /var/testpsql
-    '';
-  };
-  services.postgresql = {
-    enable = true;
-    dataDir = "/var/testpsql";
-  };
-
-  networking.firewall.allowedTCPPorts = [
-    2049 #nfs
-  ];
-
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
     /mnt/Inky/nfs 192.168.1.0/24(rw,sync,no_subtree_check,no_root_squash)
   '';
-
+  networking.firewall.allowedTCPPorts = [
+    80 #apache
+    2049 #nfs
+  ];
 }
