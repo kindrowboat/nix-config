@@ -6,7 +6,6 @@
     pkgs.emacs
     pkgs.htop
     pkgs.mosh
-    pkgs.mu
     pkgs.neovim
     pkgs.pass
     pkgs.silver-searcher
@@ -30,6 +29,12 @@
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.mu.enable = true;
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs: [
+      pkgs.mu
+    ];
+  };
   programs.command-not-found.enable = false;
   programs.fish.enable = true;
   programs.nix-index.enable = true;

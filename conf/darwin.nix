@@ -6,9 +6,9 @@
   environment.systemPackages =
     [ 
       pkgs.alacritty
-      pkgs.emacs
       pkgs.neovim
       pkgs.vim
+      pkgs.gnupg
     ];
 
   # Use a custom configuration.nix location.
@@ -34,6 +34,11 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
   programs.fish.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
