@@ -15,6 +15,10 @@
     source = ./doom.d;
     target = ".doom.d";
   };
+  home.sessionPath = [ "$HOME/bin" ];
+  home.file.bin = {
+    source = ./bin;
+  };
   programs.git = {
     enable = true;
     userName = "Stef Dunlap";

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -eu
+
+file_to_host=$1
+file_name=$(basename "$file_to_host")
+scp "$file_to_host" "serveemcgee.local:/www/$file_name"
+
+hosted_url="https://chez.kindrobot.ca/$file_name"
+
+echo "$hosted_url" | xsel -b 
+echo $hosted_url
