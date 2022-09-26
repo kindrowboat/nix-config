@@ -50,7 +50,7 @@
       mu4e-compose-context-policy 'always-ask)
 
 (set-email-account! "stef"
-  '((mu4e-sent-folder       . "/stef/Sent Mail")
+  '((mu4e-sent-folder       . "/stef/Sent")
     (mu4e-drafts-folder     . "/stef/Drafts")
     (mu4e-trash-folder      . "/stef/Trash")
     (mu4e-refile-folder     . "/stef/Archives/2022")
@@ -63,7 +63,7 @@
     (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
 (set-email-account! "hello"
-  '((mu4e-sent-folder       . "/hello/Sent Mail")
+  '((mu4e-sent-folder       . "/hello/Sent")
     (mu4e-drafts-folder     . "/hello/Drafts")
     (mu4e-trash-folder      . "/hello/Trash")
     (mu4e-refile-folder     . "/hello/Archives/2022")
@@ -76,7 +76,7 @@
     (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
 (set-email-account! "team"
-  '((mu4e-sent-folder       . "/team/Sent Mail")
+  '((mu4e-sent-folder       . "/team/Sent")
     (mu4e-drafts-folder     . "/team/Drafts")
     (mu4e-trash-folder      . "/team/Trash")
     (mu4e-refile-folder     . "/team/Archives/2022")
@@ -89,7 +89,7 @@
     (mu4e-compose-signature . "Stef Dunlap (she/her)"))
   t)
 (set-email-account! "gmail"
-  '((mu4e-sent-folder       . "/gmail/Sent Mail")
+  '((mu4e-sent-folder       . "/gmail/Sent")
     (mu4e-drafts-folder     . "/gmail/Drafts")
     (mu4e-trash-folder      . "/gmail/Trash")
     (mu4e-refile-folder     . "/gmail/Archives/2022")

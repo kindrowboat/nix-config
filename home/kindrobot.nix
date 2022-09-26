@@ -3,7 +3,6 @@
   home.stateVersion = "22.11";
   home.packages = [
     pkgs.age
-    pkgs.emacs
     pkgs.htop
     pkgs.mosh
     pkgs.neovim
