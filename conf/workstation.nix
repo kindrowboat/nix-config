@@ -74,7 +74,7 @@
     isNormalUser = true;
     description = "Stef Dunlap";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINrBZ07LYJFTsQgnNJrScoTd8s7a1EcSBYlPUyLlh3FS stef@kindrobot.ca" ];
   };
@@ -86,6 +86,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     byobu
+    chromium
     firefox
     git
     kate
@@ -107,16 +108,16 @@
   programs.command-not-found.enable = false;
   
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   services.avahi = {
     enable = true;
     nssmdns = true;
     publish.enable = true;
     publish.addresses = true;
     publish.workstation = true;
+  };
+  services.openssh.enable = true;
+  virtualisation.docker = {
+    enable = true;
   };
 
   # Open ports in the firewall.
