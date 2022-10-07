@@ -90,6 +90,7 @@
     firefox
     git
     kate
+    python3Full
     qutebrowser
     sops
     unzip

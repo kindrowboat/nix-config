@@ -9,6 +9,7 @@
     pkgs.pass
     pkgs.silver-searcher
     pkgs.tmux
+    pkgs.vscode
     pkgs.wget
   ];
   home.file.doom-d = {
