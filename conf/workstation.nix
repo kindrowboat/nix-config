@@ -94,6 +94,7 @@
     qutebrowser
     sops
     unzip
+    xsel
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

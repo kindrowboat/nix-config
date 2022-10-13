@@ -20,6 +20,7 @@
   home.file.bin = {
     source = ./bin;
   };
+  programs.direnv.enable = true;
   programs.git = {
     enable = true;
     userName = "Stef Dunlap";
