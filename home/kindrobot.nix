@@ -8,6 +8,7 @@
     pkgs.neovim
     pkgs.pass
     pkgs.silver-searcher
+    pkgs.prusa-slicer
     pkgs.tmux
     pkgs.vscode
     pkgs.wget
