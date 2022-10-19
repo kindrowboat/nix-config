@@ -1,17 +1,18 @@
 { config, home-manager, pkgs, ... }:
 {
   home.stateVersion = "22.11";
-  home.packages = [
-    pkgs.age
-    pkgs.htop
-    pkgs.mosh
-    pkgs.neovim
-    pkgs.pass
-    pkgs.silver-searcher
-    pkgs.prusa-slicer
-    pkgs.tmux
-    pkgs.vscode
-    pkgs.wget
+  home.packages = with pkgs; [
+    age
+    htop
+    krita
+    mosh
+    neovim
+    pass
+    silver-searcher
+    prusa-slicer
+    tmux
+    vscode
+    wget
   ];
   home.file.doom-d = {
     source = ./doom.d;

@@ -78,6 +78,7 @@
           })
           ./conf/workstation.nix
           ./box/wmft16.nix
+	  ./app/k3s.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
