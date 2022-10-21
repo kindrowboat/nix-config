@@ -93,6 +93,7 @@
     python3Full
     qutebrowser
     sops
+    tree
     unzip
     xsel
   ];
@@ -123,12 +124,18 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    24800 # barrier
-  ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall = { 
+    enable = true;
+    allowedTCPPorts = [
+      24800 # barrier
+    ];
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; } # kdeconnect
+    ];
+    allowedUDPPortRanges = [
+      { from = 1714; to = 1764; } # kdeconnect
+    ];
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

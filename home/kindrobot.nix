@@ -53,5 +53,8 @@
     };
   };
   programs.z-lua.enable = true;
+  services.kdeconnect = {
+    enable = true;
+  };
 }
 
