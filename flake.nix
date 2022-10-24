@@ -37,6 +37,7 @@
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
           ./conf/workstation.nix
+	  ./conf/1710_k8s.nix
           ./box/flippy.nix
           ./app/virtualbox.nix
           ./app/teamviewer.nix
@@ -78,6 +79,7 @@
           })
           ./conf/workstation.nix
           ./box/wmft16.nix
+	  ./conf/1710_k8s.nix
 	  ./app/k3s.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
