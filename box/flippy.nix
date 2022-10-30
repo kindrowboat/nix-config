@@ -38,4 +38,5 @@
 
   hardware.bluetooth.enable = true;
   services.xserver.wacom.enable = true;
+  time.hardwareClockInLocalTime = true;
 }
