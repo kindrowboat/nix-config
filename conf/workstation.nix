@@ -89,10 +89,15 @@
     chromium
     firefox
     git
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.en_CA
+    hunspellDicts.fr-any
     kate
     python3Full
     qutebrowser
     sops
+    libsForQt5.sonnet
     tree
     unzip
     xsel
