@@ -7,12 +7,7 @@
   services.k3s.extraFlags = toString [
     # "--kubelet-arg=v=4" # Optionally add additional args to k3s
   ];
-  services.dnsmasq.enable = true;
-  services.dnsmasq.extraConfig = ''
-    address=/.loop/127.0.0.1
-  '';
   environment.systemPackages = [
     pkgs.k3s
-    pkgs.kubernetes-helm
   ];
 }
