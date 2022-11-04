@@ -97,6 +97,7 @@
     python3Full
     qutebrowser
     sops
+    libreoffice-qt
     libsForQt5.sonnet
     tree
     unzip

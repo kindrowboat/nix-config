@@ -3,7 +3,6 @@
   home.packages = [
     pkgs.barrier
     pkgs.keepassxc
-    pkgs.libreoffice
     pkgs.mgba
     pkgs.nextcloud-client
     pkgs.obs-studio
