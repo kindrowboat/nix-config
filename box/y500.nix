@@ -30,9 +30,21 @@
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
+  # networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp3s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
+  networking = {
+    interfaces.wlp4s0.useDHCP = lib.mkDefault true;
+    interfaces.enp3s0.ipv4.addresses = [ {
+      address = "192.168.1.20";
+      prefixLength = 24;
+    } ];
+    defaultGateway = "192.168.1.1";
+    nameservers = [ "8.8.8.8" ];
+  };
+
+  # don't put computer to sleep right after rebooting if the lid is closed
+  services.logind.lidSwitchExternalPower = "ignore";
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
