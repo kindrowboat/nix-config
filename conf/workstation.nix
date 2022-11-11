@@ -94,6 +94,7 @@
     hunspellDicts.en_CA
     hunspellDicts.fr-any
     kate
+    killall
     python3Full
     qutebrowser
     sops
@@ -101,6 +102,7 @@
     libsForQt5.sonnet
     tree
     unzip
+    vlc
     xsel
   ];
 
