@@ -8,6 +8,7 @@
     krita
     mosh
     neovim
+    openscad
     pass
     silver-searcher
     prusa-slicer
