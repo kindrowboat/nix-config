@@ -89,6 +89,7 @@
     chromium
     firefox
     git
+    git-review
     hunspell
     hunspellDicts.en_US
     hunspellDicts.en_CA
