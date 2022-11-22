@@ -88,12 +88,14 @@
     byobu
     chromium
     firefox
+    gimp
     git
     git-review
     hunspell
     hunspellDicts.en_US
     hunspellDicts.en_CA
     hunspellDicts.fr-any
+    inkscape
     kate
     killall
     python3Full
