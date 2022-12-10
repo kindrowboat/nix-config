@@ -7,6 +7,7 @@
     address=/revenge.jk/192.168.1.15
     address=/apps.jk/192.168.1.15
     address=/sys.jk/192.168.1.15
+    address=/taco.jk/192.168.1.23
   '';
   virtualisation.docker.extraOptions = ''
     --insecure-registry "http://ku001.local:32000"
@@ -15,6 +16,7 @@
   environment.systemPackages = with pkgs; [
     kubectl
     kubernetes-helm
+    k9s
   ];
 
   security.pki.certificates = [ ''
