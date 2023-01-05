@@ -52,6 +52,25 @@
           }
         ];
       };
+      nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ({ config, pkgs, ... }: {
+            nixpkgs.config.allowUnfreePredicate = (pkg: true);
+          })
+          ./conf/workstation.nix
+          ./box/framework.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.kindrobot.imports = [
+              ./home/kindrobot.nix
+              ./home/kindrobot-linux.nix
+              ./home/email_accounts.nix
+            ];
+          }
+        ];
+      };
       nixosConfigurations.y500 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [

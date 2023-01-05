@@ -56,7 +56,7 @@
   programs.z-lua.enable = true;
   programs.ssh.enable = true;
   programs.ssh.extraConfig =
-  ''
+    ''
     # Turn CanonicalizeHostname on for Match to work below.
     CanonicalizeHostname yes
     
@@ -88,6 +88,10 @@
     
     Host gerrit.wikimedia.org
         Port 29418
+
+    Host *.wmflabs *.wikimedia.cloud
+      User kindrobot
+      ProxyJump bastion.wmcloud.org:22
     
     Host town
     	Hostname tilde.town
@@ -97,7 +101,7 @@
     	Hostname tilde.team
     	User kindrobot
     	ForwardAgent yes
-  '';
+    '';
   services.kdeconnect = {
     enable = true;
   };
