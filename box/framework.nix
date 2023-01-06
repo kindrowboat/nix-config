@@ -41,4 +41,5 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   
   hardware.bluetooth.enable = true;
+  services.fprintd.enable = true;
 }
