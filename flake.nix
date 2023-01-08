@@ -19,6 +19,7 @@
           ./box/tacotuesday.nix
 	  ./app/k3s.nix
 	  ./conf/1710_k8s.nix
+	  ./conf/nextcloud_and_nfs.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
