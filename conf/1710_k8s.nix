@@ -7,7 +7,7 @@
     address=/revenge.jk/192.168.1.15
     address=/apps.jk/192.168.1.15
     address=/sys.jk/192.168.1.15
-    address=/taco.jk/192.168.1.23
+    address=/taco.jk/192.168.1.20
   '';
   virtualisation.docker.extraOptions = ''
     --insecure-registry "http://ku001.local:32000"
