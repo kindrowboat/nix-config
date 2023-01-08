@@ -101,6 +101,7 @@
     python3Full
     qutebrowser
     sops
+    trash-cli
     libreoffice-qt
     libsForQt5.sonnet
     tree

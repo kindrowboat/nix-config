@@ -99,9 +99,10 @@
           })
           ./conf/workstation.nix
           ./box/wmft16.nix
-	  ./app/minikube.nix
-	  ./conf/1710_k8s.nix
-	  ./conf/dev_dns.nix
+          ./app/minikube.nix
+          ./app/mysql.nix
+          ./conf/1710_k8s.nix
+          ./conf/dev_dns.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

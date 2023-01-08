@@ -89,9 +89,12 @@
     Host gerrit.wikimedia.org
         Port 29418
 
+    Host *.wmflabs.org *.wmcloud.org *.toolforge.org
+        User kindrobot
+    
     Host *.wmflabs *.wikimedia.cloud
-      User kindrobot
-      ProxyJump bastion.wmcloud.org:22
+        User kindrobot
+        ProxyJump bastion.wmcloud.org:22
     
     Host town
     	Hostname tilde.town
