@@ -100,7 +100,9 @@
     killall
     python3Full
     qutebrowser
+    remmina
     sops
+    tigervnc
     trash-cli
     libreoffice-qt
     libsForQt5.sonnet
