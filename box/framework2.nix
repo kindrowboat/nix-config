@@ -15,10 +15,9 @@
   boot.kernelParams = ["module_blacklist=hid_sensor_hub"];
   boot.extraModulePackages = [ ];
   
-  networking.hostName = "framework";
-
+  networking.hostName = "framework2";
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d305c844-e0fb-4bf5-9ee0-785914399b9f";
+    { device = "/dev/disk/by-uuid/2c63d302-5165-4501-a2c3-f7d4c85c9e02";
       fsType = "ext4";
     };
 
@@ -39,8 +38,22 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  
+
+  services.fwupd.enable = true;
   hardware.bluetooth.enable = true;
   services.fprintd.enable = true;
-  services.fwupd.enable = true;
+  environment.systemPackages = with pkgs; [
+    terminus_font
+  ];
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+    keyMap = "us";
+  };
+  services.xserver.synaptics = {
+    enable = true;
+    twoFingerScroll = true;
+    accelFactor = "0.075";
+  };
 }

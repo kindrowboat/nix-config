@@ -15,7 +15,7 @@
           ({ config, pkgs, ... }: { 
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/workstation.nix
+          ./conf/kde_workstation.nix
           ./box/tacotuesday.nix
 	  ./app/k3s.nix
 	  ./conf/1710_k8s.nix
@@ -30,36 +30,14 @@
           }
         ];
       };
-      nixosConfigurations.flippy = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.framework2 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/workstation.nix
-	  ./conf/1710_k8s.nix
-          ./box/flippy.nix
-          ./app/virtualbox.nix
-          ./app/teamviewer.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.kindrobot.imports = [
-              ./home/kindrobot.nix
-              ./home/kindrobot-linux.nix
-              ./home/email_accounts.nix
-            ];
-          }
-        ];
-      };
-      nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ({ config, pkgs, ... }: {
-            nixpkgs.config.allowUnfreePredicate = (pkg: true);
-          })
-          ./conf/workstation.nix
-          ./box/framework.nix
+          ./conf/awesome_workstation.nix
+          ./box/framework2.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -77,7 +55,7 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/workstation.nix
+          ./conf/kde_workstation.nix
           ./box/y500.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -96,7 +74,7 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/workstation.nix
+          ./conf/kde_workstation.nix
           ./box/wmft16.nix
 	  ./app/minikube.nix
 	  ./conf/1710_k8s.nix
@@ -118,7 +96,7 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/workstation.nix
+          ./conf/kde_workstation.nix
           ./box/revenge.nix
           ./app/k3s.nix
 	  ./conf/1710_k8s.nix
