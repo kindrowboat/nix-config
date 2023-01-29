@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -35,8 +31,6 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -85,6 +79,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    gnome3.gnome-tweaks
+
     byobu
     chromium
     firefox
@@ -110,6 +106,11 @@
     unzip
     vlc
     xsel
+
+    dmenu mpc-cli mpd scrot unclutter xsel slock acpilight
+
+    roboto
+    terminus_font_ttf
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
