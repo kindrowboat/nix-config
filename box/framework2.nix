@@ -61,5 +61,6 @@
     enable = true;
     twoFingerScroll = true;
     accelFactor = "0.075";
+    fingersMap = [1 3 2 ];
   };
 }
