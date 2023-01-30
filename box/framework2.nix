@@ -39,6 +39,12 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  hardware.acpilight.enable = lib.mkDefault true;
+  hardware.sensor.iio.enable = lib.mkDefault true;
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+  '';
+
   services.fwupd.enable = true;
   hardware.bluetooth.enable = true;
   services.fprintd.enable = true;

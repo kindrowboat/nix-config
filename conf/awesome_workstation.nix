@@ -16,4 +16,13 @@
     GDK_DPI_SCALE = "0.5";
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
+  programs.slock.enable = true;
+  environment.systemPackages = with pkgs; [
+    dmenu
+    mpc-cli
+    mpd
+    scrot
+    unclutter
+    xsel
+  ];
 }

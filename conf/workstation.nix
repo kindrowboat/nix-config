@@ -106,11 +106,7 @@
     unzip
     vlc
     xsel
-
-    dmenu mpc-cli mpd scrot unclutter xsel slock acpilight
-
-    roboto
-    terminus_font_ttf
+    element-desktop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
