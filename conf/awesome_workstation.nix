@@ -24,5 +24,7 @@
     scrot
     unclutter
     xsel
+    clipmenu
+    flameshot
   ];
 }
