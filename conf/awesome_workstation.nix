@@ -26,5 +26,7 @@
     xsel
     clipmenu
     spectacle
+    xclip
+    emojipick
   ];
 }
