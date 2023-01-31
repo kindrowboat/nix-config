@@ -25,6 +25,6 @@
     unclutter
     xsel
     clipmenu
-    flameshot
+    spectacle
   ];
 }
