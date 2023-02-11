@@ -79,11 +79,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gnome3.gnome-tweaks
-
     byobu
     chromium
     firefox
+    gomuks
     gimp
     git
     git-review
@@ -94,6 +93,7 @@
     inkscape
     kate
     killall
+    neovim-qt
     python3Full
     qutebrowser
     remmina
@@ -108,6 +108,11 @@
     xsel
     element-desktop
   ];
+  fonts.fonts = with pkgs; [
+    comic-mono
+    fantasque-sans-mono
+  ];
+  fonts.fontconfig.defaultFonts.monospace = ["Fantasque Sans Mono"];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -133,18 +138,13 @@
   virtualisation.docker = {
     enable = true;
   };
-
+  programs.kdeconnect.enable = true;
   # Open ports in the firewall.
   networking.firewall = { 
     enable = true;
     allowedTCPPorts = [
+      8888 # web testing
       24800 # barrier
-    ];
-    allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # kdeconnect
-    ];
-    allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # kdeconnect
     ];
   };
 

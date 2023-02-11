@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = ["module_blacklist=hid_sensor_hub"];
+  boot.kernelParams = ["module_blacklist=hid_sensor_hub" "i915.enable_psr=0"];
   boot.extraModulePackages = [ ];
   
   networking.hostName = "framework2";
@@ -50,6 +50,7 @@
   services.fprintd.enable = true;
   environment.systemPackages = with pkgs; [
     terminus_font
+    pasystray
   ];
   console = {
     earlySetup = true;
@@ -62,5 +63,11 @@
     twoFingerScroll = true;
     accelFactor = "0.075";
     fingersMap = [1 3 2 ];
+    palmDetect = true;
+    additionalOptions = ''
+      Option "MaxTapTime" "150"
+      Option "MaxTapMove" "25"
+
+    '';
   };
 }

@@ -28,5 +28,9 @@
     spectacle
     xclip
     emojipick
+    networkmanagerapplet
+    blueberry
+    arc-icon-theme
+    acpi
   ];
 }
