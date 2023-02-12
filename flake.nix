@@ -17,15 +17,14 @@
           })
           ./conf/kde_workstation.nix
           ./box/tacotuesday.nix
-	  ./app/k3s.nix
-	  ./conf/1710_k8s.nix
-	  ./conf/nextcloud_and_nfs.nix
+          ./app/k3s.nix
+          ./conf/1710_k8s.nix
+          ./conf/nextcloud_and_nfs.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/kindrobot-linux.nix
               ./home/email_accounts.nix
             ];
           }
@@ -44,7 +43,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/kindrobot-linux.nix
+              ./home/awesome.nix
               ./home/email_accounts.nix
             ];
           }
@@ -63,7 +62,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/kindrobot-linux.nix
               ./home/email_accounts.nix
             ];
           }
@@ -75,7 +73,7 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/kde_workstation.nix
+          ./conf/awesome_workstation.nix
           ./box/wmft16.nix
           ./app/minikube.nix
           ./app/mysql.nix
@@ -86,7 +84,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/kindrobot-linux.nix
+              ./home/awesome.nix
               ./home/email_accounts.nix
             ];
           }
@@ -108,7 +106,6 @@
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/kindrobot-linux.nix
               ./home/email_accounts.nix
             ];
           }

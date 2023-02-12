@@ -1,6 +1,9 @@
 rebuild:
     sudo nixos-rebuild switch --flake .
 
+awesome:
+    git clone --recurse-submodules https://git.kindrobot.ca/kindrobot/awesome.git ~/.config/awesome
+
 install-doom: link-org
     git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
     ~/.emacs.d/bin/doom install

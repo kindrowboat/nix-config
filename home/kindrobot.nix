@@ -41,6 +41,7 @@
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.mu.enable = true;
+  services.emacs.enable = true;
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: [

@@ -79,40 +79,53 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    barrier
     byobu
     chromium
+    element-desktop # matrix client
     firefox
-    gomuks
     gimp
     git
     git-review
+    gomuks
     hunspell
-    hunspellDicts.en_US
     hunspellDicts.en_CA
+    hunspellDicts.en_US
     hunspellDicts.fr-any
     inkscape
     kate
+    keepassxc
     killall
+    libreoffice-qt
+    libsForQt5.sonnet
+    mgba
     neovim-qt
+    nextcloud-client
+    obs-studio
     python3Full
     qutebrowser
     remmina
+    slack
     sops
+    source-code-pro
     tigervnc
     trash-cli
-    libreoffice-qt
-    libsForQt5.sonnet
     tree
     unzip
     vlc
     xsel
-    element-desktop
+    zoom-us
+    zsh
   ];
   fonts.fonts = with pkgs; [
     comic-mono
     fantasque-sans-mono
   ];
   fonts.fontconfig.defaultFonts.monospace = ["Fantasque Sans Mono"];
+  environment.variables = {
+    EDITOR = "nvim";
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
