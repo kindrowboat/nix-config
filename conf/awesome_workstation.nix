@@ -10,6 +10,7 @@
       luadbi-mysql # Database abstraction layer
     ];
   };
+  programs.gnupg.agent.pinentryFlavor = "qt";
   programs.slock.enable = true;
   environment.systemPackages = with pkgs; [
     dmenu
@@ -26,5 +27,6 @@
     blueberry
     arc-icon-theme
     acpi
+    pinentry-qt
   ];
 }
