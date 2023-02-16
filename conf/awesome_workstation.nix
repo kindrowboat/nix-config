@@ -13,20 +13,22 @@
   programs.gnupg.agent.pinentryFlavor = "qt";
   programs.slock.enable = true;
   environment.systemPackages = with pkgs; [
+    acpi
+    arandr
+    arc-icon-theme
+    blueberry
+    clipmenu
     dmenu
+    emojipick
     mpc-cli
     mpd
-    scrot
-    unclutter
-    xsel
-    clipmenu
-    spectacle
-    xclip
-    emojipick
     networkmanagerapplet
-    blueberry
-    arc-icon-theme
-    acpi
+    pasystray
     pinentry-qt
+    scrot
+    spectacle
+    unclutter
+    xclip
+    xsel
   ];
 }
