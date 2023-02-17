@@ -24,6 +24,7 @@
     mpd
     networkmanagerapplet
     pasystray
+    picom
     pinentry-qt
     scrot
     spectacle

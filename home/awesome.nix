@@ -4,6 +4,7 @@
   home.file.xinitrc = {
     target = ".xinitrc";
     text = ''
+      picom &
       clipmenud &
       pasystray &
       nm-applet &
