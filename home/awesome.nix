@@ -5,7 +5,7 @@
     target = ".xinitrc";
     text = ''
       picom &
-      clipmenud &
+      greenclip daemon &
       pasystray &
       nm-applet &
       blueberry-tray &
