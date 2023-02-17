@@ -10,6 +10,7 @@
       luadbi-mysql # Database abstraction layer
     ];
   };
+  services.tumbler.enable = true;
   programs.gnupg.agent.pinentryFlavor = "qt";
   programs.slock.enable = true;
   environment.systemPackages = with pkgs; [
@@ -31,5 +32,9 @@
     unclutter
     xclip
     xsel
+    rofi
+    xfce.ristretto
+    zathura
+    haskellPackages.greenclip
   ];
 }
