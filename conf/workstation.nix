@@ -36,8 +36,17 @@
   services.xserver = {
     layout = "us";
     xkbVariant = "";
-    xkbOptions = "caps:swapescape";
+  };
 
+  services.interception-tools = {
+    enable = true;
+    plugins = [pkgs.interception-tools-plugins.caps2esc];
+      udevmonConfig = ''
+        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
+          DEVICE:
+            EVENTS:
+              EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+    '';
   };
 
   # Enable CUPS to print documents.
@@ -93,6 +102,7 @@
     hunspellDicts.en_US
     hunspellDicts.fr-any
     inkscape
+    interception-tools
     kate
     keepassxc
     killall
