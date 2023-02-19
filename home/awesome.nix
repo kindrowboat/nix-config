@@ -16,11 +16,19 @@
       awesome
     '';
   };
+  home.packages = with pkgs; [
+    rofi-systemd
+    rofi-emoji
+    rofi-file-browser
+    rofi-calc
+  ];
   programs.rofi = {
     enable = true;
     package = pkgs.rofi.override { plugins = [
       pkgs.rofi-emoji
       pkgs.rofi-file-browser
+      pkgs.rofi-systemd
+      pkgs.rofi-calc
     ]; };
     font = "Fantasque Sans Mono 20";
     extraConfig = {
