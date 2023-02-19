@@ -9,6 +9,26 @@
 
   outputs = { self, nixpkgs, home-manager }: 
     {
+      nixosConfigurations.silverado = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+        modules = [
+          ({ config, pkgs, ... }: { 
+            nixpkgs.config.allowUnfreePredicate = (pkg: true);
+          })
+          ./conf/awesome_workstation.nix
+          ./box/silverado.nix
+	  ./app/caddy.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.kindrobot.imports = [
+              ./home/kindrobot.nix
+              ./home/awesome.nix
+              ./home/email_accounts.nix
+            ];
+          }
+        ];
+      };
       nixosConfigurations.tacotuesday = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
         modules = [
