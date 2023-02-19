@@ -43,4 +43,22 @@
   hardware.bluetooth.enable = true;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.acpilight.enable = lib.mkDefault true;
+  hardware.sensor.iio.enable = lib.mkDefault true;
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+  '';
+
+  services.xserver.synaptics = {
+    enable = true;
+    twoFingerScroll = true;
+    accelFactor = "0.075";
+    fingersMap = [1 3 2 ];
+    palmDetect = true;
+    additionalOptions = ''
+      Option "MaxTapTime" "150"
+      Option "MaxTapMove" "25"
+    '';
+  };
 }
