@@ -4,6 +4,8 @@
   home.file.xinitrc = {
     target = ".xinitrc";
     text = ''
+      eval $(gnome-keyring-daemon --start --components=pkcs11,secrets)
+      dbus-update-activation-environment --systemd DISPLAY
       picom &
       greenclip daemon &
       pasystray &
@@ -13,7 +15,7 @@
       sleep 6 && kdeconnect-indicator &
       sleep 10 && nextcloud &
 
-      awesome
+      exec awesome
     '';
   };
   home.packages = with pkgs; [

@@ -57,7 +57,6 @@
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
           ./conf/awesome_workstation.nix
-	  ./conf/sway.nix
           ./box/framework2.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;

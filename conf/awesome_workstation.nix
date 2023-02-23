@@ -11,6 +11,9 @@
     ];
   };
   services.tumbler.enable = true;
+  # services.gnome.gnome-keyring.enable = true;
+  programs.seahorse.enable = true;
+  security.pam.services.kindrobot.enableGnomeKeyring = true;
   programs.gnupg.agent.pinentryFlavor = "qt";
   programs.slock.enable = true;
   environment.systemPackages = with pkgs; [
@@ -36,5 +39,8 @@
     xfce.ristretto
     zathura
     haskellPackages.greenclip
+    gnome.gnome-keyring
+    gcr
+    xfce.xfce4-terminal
   ];
 }
