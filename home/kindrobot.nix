@@ -48,8 +48,13 @@
       pkgs.mu
     ];
   };
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      ec = "emacsclient";
+    };
+  };
   programs.command-not-found.enable = false;
-  programs.fish.enable = true;
   programs.nix-index.enable = true;
   programs.alacritty = {
     enable = true;

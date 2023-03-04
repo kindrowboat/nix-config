@@ -15,7 +15,6 @@
   programs.seahorse.enable = true;
   security.pam.services.kindrobot.enableGnomeKeyring = true;
   programs.gnupg.agent.pinentryFlavor = "qt";
-  programs.slock.enable = true;
   environment.systemPackages = with pkgs; [
     acpi
     arandr
@@ -24,23 +23,24 @@
     clipmenu
     dmenu
     emojipick
+    gcr
+    gnome.gnome-keyring
+    haskellPackages.greenclip
+    i3lock-fancy-rapid
     mpc-cli
     mpd
     networkmanagerapplet
     pasystray
     picom
     pinentry-qt
+    rofi
     scrot
     spectacle
     unclutter
     xclip
-    xsel
-    rofi
     xfce.ristretto
-    zathura
-    haskellPackages.greenclip
-    gnome.gnome-keyring
-    gcr
     xfce.xfce4-terminal
+    xsel
+    zathura
   ];
 }

@@ -11,8 +11,6 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = ["module_blacklist=hid_sensor_hub" "i915.enable_psr=0"];
   boot.extraModulePackages = [ ];
   
   networking.hostName = "framework2";
@@ -47,33 +45,11 @@
 
   services.fwupd.enable = true;
   hardware.bluetooth.enable = true;
-  services.fprintd.enable = true;
-  environment.systemPackages = with pkgs; [
-    terminus_font
-    pasystray
-  ];
-  console = {
-    earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
-    packages = with pkgs; [ terminus_font ];
-    keyMap = "us";
-  };
-  services.xserver.synaptics = {
-    enable = true;
-    twoFingerScroll = true;
-    accelFactor = "0.075";
-    fingersMap = [1 3 2 ];
-    palmDetect = true;
-    additionalOptions = ''
-      Option "MaxTapTime" "150"
-      Option "MaxTapMove" "25"
-
-    '';
-  };
   services.xserver.dpi = 180;
   environment.variables = {
     GDK_SCALE = "2";
     GDK_DPI_SCALE = "0.5";
     _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
   };
+  hardware.video.hidpi.enable = true;
 }
