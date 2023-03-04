@@ -118,6 +118,7 @@
     slack
     sops
     source-code-pro
+    sshuttle
     tigervnc
     trash-cli
     tree
