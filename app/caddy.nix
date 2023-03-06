@@ -12,6 +12,11 @@
           redir https://tilde.town/~kindrobot{uri}
         '';
       };
+      "meet.kindrobot.ca" = {
+        extraConfig = ''
+          redir https://meet.google.com/pwb-uvmn-imd
+        '';
+      };
       "https://nc.kindrobot.ca:443" = {
         extraConfig = ''
           header Strict-Transport-Security max-age=31536000;
