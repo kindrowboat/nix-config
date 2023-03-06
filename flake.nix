@@ -36,7 +36,7 @@
           ({ config, pkgs, ... }: { 
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/kde_workstation.nix
+          ./conf/awesome_workstation.nix
           ./box/tacotuesday.nix
           ./app/k3s.nix
           ./conf/1710_k8s.nix
@@ -46,6 +46,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
+	      ./home/awesome.nix
               ./home/email_accounts.nix
             ];
           }
