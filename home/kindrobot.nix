@@ -41,7 +41,7 @@
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.mu.enable = true;
-  services.emacs.enable = true;
+  services.emacs.enable = false;
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: [
@@ -51,7 +51,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      ec = "emacsclient";
+      ec = "emacsclient -t";
     };
   };
   programs.command-not-found.enable = false;
@@ -110,6 +110,8 @@
     	Hostname tilde.town
     	User kindrobot
     	ForwardAgent yes
+      AddressFamily inet
+
     Host team
     	Hostname tilde.team
     	User kindrobot
@@ -119,4 +121,3 @@
     enable = true;
   };
 }
-

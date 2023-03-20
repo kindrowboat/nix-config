@@ -112,7 +112,8 @@
     neovim-qt
     nextcloud-client
     obs-studio
-    python3Full
+    python310
+    python310Packages.pip
     qutebrowser
     remmina
     slack
@@ -131,8 +132,9 @@
   fonts.fonts = with pkgs; [
     comic-mono
     fantasque-sans-mono
+    nerdfonts
   ];
-  fonts.fontconfig.defaultFonts.monospace = ["Fantasque Sans Mono"];
+  fonts.fontconfig.defaultFonts.monospace = ["FantasqueSansMono Nerd Font Mono"];
   environment.variables = {
     EDITOR = "nvim";
   };
@@ -162,13 +164,21 @@
   virtualisation.docker = {
     enable = true;
   };
+  services.flatpak.enable = true;
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ] ;
+  };
   programs.kdeconnect.enable = true;
   # Open ports in the firewall.
   networking.firewall = { 
     enable = true;
     allowedTCPPorts = [
+      80
+      443
       8888 # web testing
       24800 # barrier
+      19000 # expo
     ];
   };
 

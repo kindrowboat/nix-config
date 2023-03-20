@@ -43,66 +43,6 @@
 (setq org-directory "~/org/")
 (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 
-(after! mu4e
-(setq mail-user-agent             'mu4e-user-agent
-      message-send-mail-function  'message-send-mail-with-sendmail
-      sendmail-program            (executable-find "msmtp")
-      mu4e-context-policy 'ask-if-none
-      mu4e-compose-context-policy 'always-ask)
-
-(set-email-account! "stef"
-  '((mu4e-sent-folder       . "/stef/Sent")
-    (mu4e-drafts-folder     . "/stef/Drafts")
-    (mu4e-trash-folder      . "/stef/Trash")
-    (mu4e-refile-folder     . "/stef/Archives/2023")
-    (mu4e-maildir-shortcuts . (("/stef/INBOX" . ?i)
-                               ("/stef/Drafts"         . ?d)
-                               ("/stef/Sent" . ?s)))
-    (smtpmail-smtp-user     . "stef@kindrobot.ca")
-    (user-mail-address      . "stef@kindrobot.ca")
-    (user-full-name         . "Stef Dunlap")
-    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
-  t)
-(set-email-account! "hello"
-  '((mu4e-sent-folder       . "/hello/Sent")
-    (mu4e-drafts-folder     . "/hello/Drafts")
-    (mu4e-trash-folder      . "/hello/Trash")
-    (mu4e-refile-folder     . "/hello/Archives/2023")
-    (mu4e-maildir-shortcuts . (("/hello/INBOX" . ?i)
-                               ("/hello/Drafts"         . ?d)
-                               ("/hello/Sent" . ?s)))
-    (smtpmail-smtp-user     . "hello@kindrobot.ca")
-    (user-mail-address      . "hello@kindrobot.ca")
-    (user-full-name         . "Stef Dunlap")
-    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
-  t)
-(set-email-account! "team"
-  '((mu4e-sent-folder       . "/team/Sent")
-    (mu4e-drafts-folder     . "/team/Drafts")
-    (mu4e-trash-folder      . "/team/Trash")
-    (mu4e-refile-folder     . "/team/Archives/2023")
-    (mu4e-maildir-shortcuts . (("/team/INBOX" . ?i)
-                               ("/team/Drafts"         . ?d)
-                               ("/team/Sent" . ?s)))
-    (smtpmail-smtp-user     . "kindrobot@tilde.team")
-    (user-mail-address      . "kindrobot@tilde.team")
-    (user-full-name         . "Stef Dunlap")
-    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
-  t)
-(set-email-account! "gmail"
-  '((mu4e-sent-folder       . "/gmail/Sent")
-    (mu4e-drafts-folder     . "/gmail/Drafts")
-    (mu4e-trash-folder      . "/gmail/Trash")
-    (mu4e-refile-folder     . "/gmail/Archives/2023")
-    (mu4e-maildir-shortcuts . (("/gmail/INBOX" . ?i)
-                               ("/gmail/Drafts"         . ?d)
-                               ("/gmail/Sent" . ?s)))
-    (smtpmail-smtp-user     . "apocryphalauthor@gmail.com")
-    (user-mail-address      . "apocryphalauthor@gmail.com")
-    (user-full-name         . "Stef Dunlap")
-    (mu4e-compose-signature . "Stef Dunlap (she/her)"))
-  t)
-)
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
@@ -134,5 +74,68 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! mu4e
+        (setq mail-user-agent             'mu4e-user-agent
+        message-send-mail-function  'message-send-mail-with-sendmail
+        sendmail-program            (executable-find "msmtp")
+        mu4e-context-policy 'ask-if-none
+        mu4e-compose-context-policy 'always-ask)
+
+        (set-email-account! "stef"
+        '((mu4e-sent-folder       . "/stef/Sent")
+        (mu4e-drafts-folder     . "/stef/Drafts")
+        (mu4e-trash-folder      . "/stef/Trash")
+        (mu4e-refile-folder     . "/stef/Archives/2023")
+        (mu4e-maildir-shortcuts . (("/stef/INBOX" . ?i)
+                                ("/stef/Drafts"         . ?d)
+                                ("/stef/Sent" . ?s)))
+        (smtpmail-smtp-user     . "stef@kindrobot.ca")
+        (user-mail-address      . "stef@kindrobot.ca")
+        (user-full-name         . "Stef Dunlap")
+        (mu4e-compose-signature . "Stef Dunlap (she/her)"))
+        t)
+        (set-email-account! "hello"
+        '((mu4e-sent-folder       . "/hello/Sent")
+        (mu4e-drafts-folder     . "/hello/Drafts")
+        (mu4e-trash-folder      . "/hello/Trash")
+        (mu4e-refile-folder     . "/hello/Archives/2023")
+        (mu4e-maildir-shortcuts . (("/hello/INBOX" . ?i)
+                                ("/hello/Drafts"         . ?d)
+                                ("/hello/Sent" . ?s)))
+        (smtpmail-smtp-user     . "hello@kindrobot.ca")
+        (user-mail-address      . "hello@kindrobot.ca")
+        (user-full-name         . "Stef Dunlap")
+        (mu4e-compose-signature . "Stef Dunlap (she/her)"))
+        t)
+        (set-email-account! "team"
+        '((mu4e-sent-folder       . "/team/Sent")
+        (mu4e-drafts-folder     . "/team/Drafts")
+        (mu4e-trash-folder      . "/team/Trash")
+        (mu4e-refile-folder     . "/team/Archives/2023")
+        (mu4e-maildir-shortcuts . (("/team/INBOX" . ?i)
+                                ("/team/Drafts"         . ?d)
+                                ("/team/Sent" . ?s)))
+        (smtpmail-smtp-user     . "kindrobot@tilde.team")
+        (user-mail-address      . "kindrobot@tilde.team")
+        (user-full-name         . "Stef Dunlap")
+        (mu4e-compose-signature . "Stef Dunlap (she/her)"))
+        t)
+        (set-email-account! "gmail"
+        '((mu4e-sent-folder       . "/gmail/Sent")
+        (mu4e-drafts-folder     . "/gmail/Drafts")
+        (mu4e-trash-folder      . "/gmail/Trash")
+        (mu4e-refile-folder     . "/gmail/Archives/2023")
+        (mu4e-maildir-shortcuts . (("/gmail/INBOX" . ?i)
+                                ("/gmail/Drafts"         . ?d)
+                                ("/gmail/Sent" . ?s)))
+        (smtpmail-smtp-user     . "apocryphalauthor@gmail.com")
+        (user-mail-address      . "apocryphalauthor@gmail.com")
+        (user-full-name         . "Stef Dunlap")
+        (mu4e-compose-signature . "Stef Dunlap (she/her)"))
+        t)
+)
 (after! org
-  (super-save-mode +1))
+        (super-save-mode +1))
+
+(add-hook 'text-mode-hook 'auto-save-visited-mode)
