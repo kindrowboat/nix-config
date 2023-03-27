@@ -21,3 +21,7 @@ restart-emacs:
 upgrade:
     nix flake update
     sudo nixos-rebuild switch --flake .
+
+secrets:
+    git clone ssh://git@git.kindrobot.ca:61734/kindrobot/secretdots.git ../secretdots
+    cd ../secretdots && ./install.sh
