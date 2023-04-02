@@ -116,6 +116,16 @@
     	Hostname tilde.team
     	User kindrobot
     	ForwardAgent yes
+
+    Host fans
+      Hostname tilde.fans
+      User kindrobot
+      ForwardAgent yes
+
+    Host home
+       Hostname kindrobot.ca
+       Port 4222
+       ForwardAgent yes
     '';
   services.kdeconnect = {
     enable = true;
