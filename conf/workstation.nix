@@ -106,12 +106,14 @@
     kate
     keepassxc
     killall
+    lbreakouthd
     libreoffice-qt
     libsForQt5.sonnet
     mgba
     neovim-qt
     nextcloud-client
     obs-studio
+    opera
     python310
     python310Packages.pip
     qutebrowser
