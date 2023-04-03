@@ -142,16 +142,16 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/kde_workstation.nix
+          ./conf/awesome_workstation.nix
           ./box/revenge.nix
           ./app/k3s.nix
           ./conf/1710_k8s.nix
-          ./conf/rdp_server.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
+              ./home/awesome.nix
               ./home/email_accounts.nix
             ];
           }

@@ -182,6 +182,9 @@
       24800 # barrier
       19000 # expo
     ];
+    allowedUDPPortRanges = [
+      { from = 60000; to = 61000; }
+    ];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
