@@ -6,9 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    vscode-server.url = "github:msteen/nixos-vscode-server";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware }: 
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, vscode-server }: 
     {
       nixosConfigurations.silverado = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -146,6 +147,10 @@
           ./box/revenge.nix
           ./app/k3s.nix
           ./conf/1710_k8s.nix
+	  vscode-server.nixosModule
+	  ({ config, pkgs, ... }: {
+	    services.vscode-server.enable = true;
+	  })
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

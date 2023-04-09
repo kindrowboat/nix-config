@@ -28,6 +28,7 @@
     source = ./bin;
   };
   programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
   programs.git = {
     enable = true;
     userName = "Stef Dunlap";
