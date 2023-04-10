@@ -21,6 +21,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.nameservers = [ "138.197.140.189" "38.103.195.4" ];
+
   # Set your time zone.
   time.timeZone = "America/Toronto";
 
@@ -91,8 +93,10 @@
     barrier
     byobu
     chromium
+    dig.dnsutils
     element-desktop # matrix client
     firefox
+    gh
     gimp
     git
     git-review

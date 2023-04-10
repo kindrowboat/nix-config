@@ -91,29 +91,6 @@
           }
         ];
       };
-      nixosConfigurations.wmft16 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ({ config, pkgs, ... }: {
-            nixpkgs.config.allowUnfreePredicate = (pkg: true);
-          })
-          ./conf/awesome_workstation.nix
-          ./box/wmft16.nix
-          ./app/minikube.nix
-          ./app/mysql.nix
-          ./conf/1710_k8s.nix
-          ./conf/dev_dns.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.kindrobot.imports = [
-              ./home/kindrobot.nix
-              ./home/awesome.nix
-              ./home/email_accounts.nix
-            ];
-          }
-        ];
-      };
       nixosConfigurations.wmft162 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -124,8 +101,6 @@
           ./box/wmft162.nix
           ./app/minikube.nix
           ./app/mysql.nix
-          ./conf/1710_k8s.nix
-          ./conf/dev_dns.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
