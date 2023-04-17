@@ -31,6 +31,7 @@
     mpd
     networkmanagerapplet
     pasystray
+    pavucontrol
     picom
     pinentry-qt
     rofi
