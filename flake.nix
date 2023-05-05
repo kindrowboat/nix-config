@@ -59,16 +59,20 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          ./conf/awesome_workstation.nix
+          #./conf/awesome_workstation.nix
           nixos-hardware.nixosModules.framework-12th-gen-intel
           ./box/framework2.nix
+          ./conf/awesome_workstation.nix
+          ./conf/sway.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
               ./home/awesome.nix
+              ./home/sway.nix
               ./home/email_accounts.nix
+
             ];
           }
         ];

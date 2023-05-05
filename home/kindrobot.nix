@@ -1,4 +1,4 @@
-{ config, home-manager, pkgs, ... }:
+{ config, pkgs, home-manager, ... }:
 {
   home.stateVersion = "22.11";
   home.packages = with pkgs; [

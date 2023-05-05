@@ -42,6 +42,9 @@ let
 
 in
 {
+  imports = [./workstation.nix];
+  services.xserver.displayManager.startx.enable = true;
+
   environment.systemPackages = with pkgs; [
     alacritty # gpu accelerated terminal
     sway
@@ -57,17 +60,20 @@ in
     grim # screenshot functionality
     slurp # screenshot functionality
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    bemenu # wayland clone of dmenu
+    wofi
     mako # notification system developed by swaywm maintainer
+    networkmanagerapplet
+    pasystray
+    pavucontrol
+    blueberry
+    clipmenu
   ];
-
 
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
   };
-
 
   # xdg-desktop-portal works by exposing a series of D-Bus interfaces
   # known as portals under a well-known name
@@ -88,4 +94,7 @@ in
     enable = true;
     wrapperFeatures.gtk = true;
   };
+
+  security.polkit.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
