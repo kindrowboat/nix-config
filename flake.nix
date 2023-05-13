@@ -64,6 +64,7 @@
           ./box/framework2.nix
           ./conf/awesome_workstation.nix
           ./conf/sway.nix
+          ./conf/epson_perfection_v19.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
