@@ -120,6 +120,7 @@
     opera
     python310
     python310Packages.pip
+    libqalculate
     qutebrowser
     remmina
     slack
