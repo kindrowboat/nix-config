@@ -12,14 +12,14 @@
   outputs = { self, nixpkgs, home-manager, nixos-hardware, vscode-server }: 
     {
       nixosConfigurations.silverado = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+        system = "x86_64-linux";
         modules = [
           ({ config, pkgs, ... }: { 
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
           ./conf/awesome_workstation.nix
           ./box/silverado.nix
-	  ./app/caddy.nix
+          ./app/caddy.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -32,7 +32,7 @@
         ];
       };
       nixosConfigurations.tacotuesday = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+        system = "x86_64-linux";
         modules = [
           ({ config, pkgs, ... }: { 
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
@@ -47,7 +47,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-	      ./home/awesome.nix
+              ./home/awesome.nix
               ./home/email_accounts.nix
             ];
           }
@@ -106,6 +106,7 @@
           ./box/wmft162.nix
           ./app/minikube.nix
           ./app/mysql.nix
+          ./app/k3s.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -127,10 +128,10 @@
           ./box/revenge.nix
           ./app/k3s.nix
           ./conf/1710_k8s.nix
-	  vscode-server.nixosModule
-	  ({ config, pkgs, ... }: {
-	    services.vscode-server.enable = true;
-	  })
+          vscode-server.nixosModule
+          ({ config, pkgs, ... }: {
+            services.vscode-server.enable = true;
+          })
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

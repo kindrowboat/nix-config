@@ -75,6 +75,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(setq org-gcal-client-id "92451049096-2rg3qhs4t7gc8lu4rr88ftv4i6l54rgn.apps.googleusercontent.com"
+      org-gcal-client-secret "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"
+      org-gcal-fetch-file-alist '(("apocryphalauthor@gmail.com" .  "~/org/personal.org")
+                                  ("94tkuidkeh4c7ss1q0alhdq7ag@group.calendar.google.com" . "~/org/personal.org")))
+(setq plstore-cache-passphrase-for-symmetric-encryption t)
+(require 'org-gcal)
+
 (after! mu4e
         (setq mail-user-agent             'mu4e-user-agent
         message-send-mail-function  'message-send-mail-with-sendmail
