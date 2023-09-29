@@ -185,6 +185,7 @@
     allowedTCPPorts = [
       80
       443
+      5900 # tigervnc
       8888 # web testing
       24800 # barrier
       19000 # expo
