@@ -107,6 +107,7 @@
           ./app/minikube.nix
           ./app/mysql.nix
           ./app/k3s.nix
+	  ./app/gcloud.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

@@ -110,6 +110,7 @@
     kate
     keepassxc
     killall
+    kubectl
     lbreakouthd
     libreoffice-qt
     libsForQt5.sonnet
@@ -136,7 +137,7 @@
     zoom-us
     zsh
   ];
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     comic-mono
     fantasque-sans-mono
     nerdfonts
@@ -175,6 +176,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ] ;
+    config.common.default = "*";
   };
   programs.kdeconnect.enable = true;
   # Open ports in the firewall.
