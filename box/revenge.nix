@@ -38,4 +38,11 @@
   networking.useDHCP = lib.mkDefault true;
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  environment.systemPackages = with pkgs; [
+    ijs
+    canon-cups-ufr2
+  ];
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.epson-escpr ];
 }
