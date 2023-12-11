@@ -20,19 +20,25 @@
       "https://nc.kindrobot.ca:443" = {
         extraConfig = ''
           header Strict-Transport-Security max-age=31536000;
-          reverse_proxy 192.168.1.20:8080
+          reverse_proxy 10.0.0.3:8080
+        '';
+      };
+      "https://nc2.kindrobot.ca:443" = {
+        extraConfig = ''
+          header Strict-Transport-Security max-age=31536000;
+          reverse_proxy 10.0.0.3:80
         '';
       };
       "https://git.kindrobot.ca:443" = {
         extraConfig = ''
 	  header Strict-Transport-Security max-age=31536000;
-	  reverse_proxy 192.168.1.20:80
+	  reverse_proxy 10.0.0.3:80
         '';
       };
       "https://files.kindrobot.ca:443" = {
         extraConfig = ''
           header Strict-Transport-Security max-age=31536000;
-          reverse_proxy 192.168.1.20:80
+          reverse_proxy 10.0.0.3:80
         '';
       };
       "https://piepi.kindrobot.ca:443" = {
@@ -42,7 +48,7 @@
         ];
         extraConfig = ''
           header Strict-Transport-Security max-age=31536000;
-          reverse_proxy 192.168.1.110:80
+          reverse_proxy 10.0.0.4:80
         '';
       };
     };
