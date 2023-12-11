@@ -35,12 +35,13 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   networking = {
-    interfaces.enp1s0f0.ipv4.addresses = [ {
-      address = "192.168.0.2";
-      prefixLength = 22;
-    } ];
-    defaultGateway = "192.168.0.1";
-    nameservers = [ "8.8.8.8" ];
+    interfaces.enp1s0f0.useDHCP = true;
+  #  interfaces.enp1s0f0.ipv4.addresses = [ {
+  #    address = "10.0.0.2";
+  #    prefixLength = 16;
+  #  } ];
+  #  defaultGateway = "10.0.0.1";
+  #  nameservers = [ "8.8.8.8" ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
