@@ -101,6 +101,7 @@
     git
     git-review
     gomuks
+    google-drive-ocamlfuse
     hunspell
     hunspellDicts.en_CA
     hunspellDicts.en_US
