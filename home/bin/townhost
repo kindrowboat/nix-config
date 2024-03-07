@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Check if at least one argument is provided
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <local_file> [remote_filename]"
+    exit 1
+fi
+
+# The local file to copy
+LOCAL_FILE="$1"
+
+# Check if the file exists
+if [ ! -f "$LOCAL_FILE" ]; then
+    echo "File $LOCAL_FILE does not exist."
+    exit 2
+fi
+
+# Use the name of the local file if the remote filename is not provided
+REMOTE_FILENAME="${2:-$(basename "$LOCAL_FILE")}"
+
+# Define the remote directory
+REMOTE_DIR="kindrobot@tilde.town:public_html/s/"
+
+# Copy the file to the remote directory
+scp "$LOCAL_FILE" "$REMOTE_DIR$REMOTE_FILENAME"
+
+# Check if scp succeeded
+if [ $? -eq 0 ]; then
+    echo "File successfully copied."
+    # Generate the URL
+    URL="https://tilde.town/~kindrobot/s/$REMOTE_FILENAME"
+    echo "URL: $URL"
+    
+    # Try to copy the URL to the clipboard using xsel
+    if command -v xsel >/dev/null 2>&1; then
+        echo -n "$URL" | xsel --clipboard --input
+        echo "URL has been copied to the clipboard."
+    else
+        echo "Warning: 'xsel' is not installed. Cannot copy URL to the clipboard."
+    fi
+else
+    echo "Failed to copy the file."
+    exit 3
+fi
