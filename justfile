@@ -25,3 +25,7 @@ upgrade:
 secrets:
     git clone ssh://git@git.kindrobot.ca:61734/kindrobot/secretdots.git ../secretdots
     cd ../secretdots && ./install.sh
+
+gc:
+    sudo nix-env --delete-generations old
+    sudo nix-store --gc
