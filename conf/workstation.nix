@@ -132,6 +132,7 @@
     source-code-pro
     sshuttle
     tigervnc
+    transmission
     trash-cli
     tree
     unzip
