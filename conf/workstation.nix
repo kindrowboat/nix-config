@@ -133,6 +133,7 @@
     trash-cli
     tree
     unzip
+    vivaldi
     vlc
     xsel
     zoom-us
