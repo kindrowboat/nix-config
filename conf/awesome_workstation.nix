@@ -14,7 +14,7 @@
   # services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
   security.pam.services.kindrobot.enableGnomeKeyring = true;
-  programs.gnupg.agent.pinentryFlavor = "qt";
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-qt;
   environment.systemPackages = with pkgs; [
     acpi
     arandr
