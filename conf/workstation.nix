@@ -106,6 +106,7 @@
     hunspellDicts.en_CA
     hunspellDicts.en_US
     hunspellDicts.fr-any
+    hyfetch
     inkscape
     interception-tools
     kate
@@ -115,6 +116,7 @@
     lbreakouthd
     libreoffice-qt
     libsForQt5.sonnet
+    minecraft
     mgba
     neovim-qt
     nextcloud-client
@@ -188,6 +190,8 @@
       80
       443
       5900 # tigervnc
+      8080 # web testing
+      8081 # expo
       8888 # web testing
       24800 # barrier
       19000 # expo
