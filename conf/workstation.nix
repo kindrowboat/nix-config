@@ -133,6 +133,7 @@
     sshuttle
     tigervnc
     transmission
+    transmission-gtk
     trash-cli
     tree
     unzip
