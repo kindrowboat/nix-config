@@ -91,6 +91,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     barrier
+    blender
     byobu
     chromium
     dig.dnsutils
