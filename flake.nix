@@ -7,9 +7,18 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     vscode-server.url = "github:msteen/nixos-vscode-server";
+    lix = {
+      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
+      flake = false;
+    };
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module";
+      inputs.lix.follows = "lix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, vscode-server }: 
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, vscode-server, lix, lix-module }: 
     {
       nixosConfigurations.silverado = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -75,6 +84,7 @@
 
             ];
           }
+	  lix-module.nixosModules.default
         ];
       };
       nixosConfigurations.y500 = nixpkgs.lib.nixosSystem {
