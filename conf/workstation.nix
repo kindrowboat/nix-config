@@ -117,7 +117,6 @@
     lbreakouthd
     libreoffice-qt
     libsForQt5.sonnet
-    minecraft
     mgba
     neovim-qt
     nextcloud-client
