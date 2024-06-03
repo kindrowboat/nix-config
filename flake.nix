@@ -66,13 +66,12 @@
           ({ config, pkgs, ... }: {
             nixpkgs.config.allowUnfreePredicate = (pkg: true);
           })
-          #./conf/awesome_workstation.nix
           nixos-hardware.nixosModules.framework-12th-gen-intel
           ./box/framework2.nix
           ./conf/awesome_workstation.nix
           ./conf/sway.nix
           ./conf/epson_perfection_v19.nix
-	  ./app/virtualbox.nix
+          ./app/virtualbox.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -84,7 +83,7 @@
 
             ];
           }
-	  lix-module.nixosModules.default
+          lix-module.nixosModules.default
         ];
       };
       nixosConfigurations.y500 = nixpkgs.lib.nixosSystem {
@@ -116,7 +115,7 @@
           ./app/minikube.nix
           ./app/mysql.nix
           ./app/k3s.nix
-	  ./app/gcloud.nix
+          ./app/gcloud.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
