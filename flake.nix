@@ -150,6 +150,7 @@
               ./home/email_accounts.nix
             ];
           }
+          lix-module.nixosModules.default
         ];
       };
     };
