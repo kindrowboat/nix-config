@@ -84,6 +84,15 @@
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINrBZ07LYJFTsQgnNJrScoTd8s7a1EcSBYlPUyLlh3FS stef@kindrobot.ca" ];
   };
 
+  users.users.maxine = {
+    isNormalUser = true;
+    description = "Maxine";
+    shell = pkgs.fish;
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [ ];
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGiFgxifzUSUWhJoVNHhh3ymT2b3c4IsUkqApCddDph+ maxine@pat" ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
