@@ -32,9 +32,10 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/awesome.nix
+              (import ./home/awesome.nix { hdpi = false; })
               ./home/email_accounts.nix
             ];
           }
@@ -52,9 +53,10 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/awesome.nix
+              (import ./home/awesome.nix { hdpi = false; })
               ./home/email_accounts.nix
             ];
           }
@@ -75,9 +77,10 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/awesome.nix
+              (import ./home/awesome.nix { hdpi = true; })
               ./home/sway.nix
               ./home/email_accounts.nix
 
@@ -97,6 +100,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
               ./home/email_accounts.nix
@@ -119,9 +123,10 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/awesome.nix
+              (import ./home/awesome.nix { hdpi = false; })
               ./home/email_accounts.nix
             ];
           }
@@ -144,9 +149,10 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".bak";
             home-manager.users.kindrobot.imports = [
               ./home/kindrobot.nix
-              ./home/awesome.nix
+              (import ./home/awesome.nix { hdpi = false; })
               ./home/email_accounts.nix
             ];
           }

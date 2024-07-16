@@ -26,6 +26,7 @@
   home.file.bin = {
     source = ./bin;
   };
+
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.git = {

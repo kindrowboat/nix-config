@@ -29,5 +29,9 @@
       }
     '';
   };
+  home.packages = with pkgs; [
+    bluetuith
+    pulsemixer
+  ];
   #programs.waybar.enable = true;
 }

@@ -1,11 +1,21 @@
-{ config, lib, pkgs, ... }:
-
+{ hdpi ? false }: { config, lib, pkgs, ...}:
+let
+  hdpiBlurb = if hdpi then
+    ''
+    export GDK_SCALE="2"
+    export GDK_DPI_SCALE="0.5"
+    export _JAVA_OPTIONS="-Dsun.java2d.uiScale=2"
+    ''
+  else
+    "";
+in
 {
   home.file.xinitrc = {
     target = ".xinitrc";
     text = ''
       eval $(gnome-keyring-daemon --start --components=pkcs11,secrets)
       dbus-update-activation-environment --systemd DISPLAY
+      ${hdpiBlurb}
       picom &
       greenclip daemon &
       pasystray &
