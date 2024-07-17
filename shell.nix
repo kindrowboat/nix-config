@@ -5,5 +5,6 @@ with pkgs;
 mkShell {
   buildInputs = [
     pkgs.just
+    pkgs.nixpkgs-fmt
   ];
 }
