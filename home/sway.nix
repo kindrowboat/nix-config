@@ -132,6 +132,7 @@ in
         middle_emulation enabled
       }
 
+      bindsym Mod1+Tab workspace back_and_forth
       output eDP-1 background "${crust}" solid_color
     '';
   };

@@ -14,6 +14,7 @@
     tmux
     vscode
     wget
+    thunderbird
   ];
   home.file.doom-d = {
     source = ./doom.d;
@@ -129,7 +130,4 @@
 	Port 4222
     	ForwardAgent yes
     '';
-  services.kdeconnect = {
-    enable = true;
-  };
 }
