@@ -65,6 +65,12 @@
     };
   };
   programs.z-lua.enable = true;
+  #programs.thunderbird = {
+  #  enable = true;
+  #  profiles.default = {
+  #      isDefault = true;
+  #  };
+  #};
   programs.ssh.enable = true;
   programs.ssh.controlPath = "~/.ssh/%C"; #fix ControlPath too long
   programs.ssh.extraConfig =

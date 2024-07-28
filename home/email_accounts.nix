@@ -8,6 +8,7 @@ let
       };
       msmtp.enable = true;
       mu.enable = true;
+      thunderbird.enable = true;
   };
 in
 {

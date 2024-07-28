@@ -127,6 +127,7 @@
     libreoffice-qt
     libsForQt5.sonnet
     mgba
+    neofetch
     neovim-qt
     nextcloud-client
     obs-studio
