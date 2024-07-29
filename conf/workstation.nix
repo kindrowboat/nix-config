@@ -79,7 +79,7 @@
     isNormalUser = true;
     description = "Stef Dunlap";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" ];
     packages = with pkgs; [ ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINrBZ07LYJFTsQgnNJrScoTd8s7a1EcSBYlPUyLlh3FS stef@kindrobot.ca" ];
   };
@@ -194,6 +194,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ] ;
     config.common.default = "*";
   };
+  services.udisks2.enable = true;
   programs.kdeconnect.enable = true;
   # Open ports in the firewall.
   networking.firewall = { 

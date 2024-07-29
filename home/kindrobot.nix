@@ -4,7 +4,10 @@
   home.packages = with pkgs; [
     age
     htop
+    jq
     krita
+    imagemagick
+    libnotify
     mosh
     neovim
     openscad

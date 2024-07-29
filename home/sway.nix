@@ -29,13 +29,15 @@ let
   crust = "#11111b";
 in
 {
+  home.sessionVariables = {
+    SWAY_SCREENSHOT_DIR = "$HOME/Pictures";
+  };
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
       modifier = "Mod4";
       terminal = "alacritty";
       workspaceAutoBackAndForth = true;
-      startup = [ ];
       keybindings =
         let
           modifier = config.wayland.windowManager.sway.config.modifier;
@@ -43,52 +45,20 @@ in
         in
         lib.mkOptionDefault {
           "${modifier}+p" = "exec wofi --show run";
+          "XF86AudioRaiseVolume" = "exec pulsemixer --change-volume +10";
+          "XF86AudioLowerVolume" = "exec pulsemixer --change-volume -10";
+          "XF86AudioMute" = "exec pulsemixer --toggle-mute";
+	  "XF86MonBrightnessUp" = "exec light -A 5";
+	  "XF86MonBrightnessDown" = "exec light -U 5";
+	  "${modifier}+Print" = "exec sway-screenshot -m window";
+	  "Print" = "exec sway-screenshot -m output";
+          "${modifier}+Shift+Print" = "exec sway-screenshot -m region";
         };
       output = {
         eDP-1 = {
           scale = "1.5";
         };
       };
-      # bars = [{
-
-      #   statusCommand = "waybar";
-      #   trayOutput = "*";
-      #   fonts = {
-      #     size = 12.0;
-      #   };
-      #   colors = {
-      #     background = base;
-      #     separator = mauve;
-      #     focusedSeparator = mauve;
-      #     statusline = text;
-      #     focusedStatusline = text;
-      #     focusedWorkspace = {
-      #       border = base;
-      #       background = base;
-      #       text = pink;
-      #     };
-      #     activeWorkspace = {
-      #       border = base;
-      #       background = base;
-      #       text = rosewater;
-      #     };
-      #     inactiveWorkspace = {
-      #       border = base;
-      #       background = base;
-      #       text = surface1;
-      #     };
-      #     urgentWorkspace = {
-      #       border = base;
-      #       background = maroon;
-      #       text = base;
-      #     };
-      #     bindingMode = {
-      #       border = base;
-      #       background = base;
-      #       text = surface1;
-      #     };
-      #   };
-      # }];
       bars = [];
       colors = {
         focused = {
@@ -128,8 +98,10 @@ in
         };
         background = base;
       };
+      startup = [
+        {command = "waybar";}
+      ];
     };
-
 
     extraConfig = ''
       input "type:touchpad" {
