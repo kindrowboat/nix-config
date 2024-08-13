@@ -29,6 +29,11 @@ let
   crust = "#11111b";
 in
 {
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts.monospace = ["Fantasque Sans Mono"];
+  };
+
   home.sessionVariables = {
     SWAY_SCREENSHOT_DIR = "$HOME/Pictures";
   };
@@ -38,6 +43,10 @@ in
       modifier = "Mod4";
       terminal = "alacritty";
       workspaceAutoBackAndForth = true;
+      #fonts = {
+      #  names = [ "Fantasque Sans Mono" ];
+      #  size = 20.0;
+      #};
       keybindings =
         let
           modifier = config.wayland.windowManager.sway.config.modifier;
@@ -53,6 +62,7 @@ in
 	  "${modifier}+Print" = "exec sway-screenshot -m window";
 	  "Print" = "exec sway-screenshot -m output";
           "${modifier}+Shift+Print" = "exec sway-screenshot -m region";
+          "${modifier}+v" = "exec copyq menu";
         };
       output = {
         eDP-1 = {
@@ -100,6 +110,7 @@ in
       };
       startup = [
         {command = "waybar";}
+        {command = "copyq";}
       ];
     };
 
@@ -120,8 +131,8 @@ in
     style = ''
     * {
         /* `otf-font-awesome` is required to be installed for icons */
-        font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-        font-size: 13px;
+        font-family: FontAwesome, Fantasque Sans Mono, Helvetica, Arial, sans-serif;
+        font-size: 16px;
     }
 
     window#waybar {
@@ -466,84 +477,84 @@ in
   programs.alacritty = {
     enable = true;
     settings = {
-      colors = {
-        primary = {
-          background = base;
-          foreground = text;
-          dim_foreground = subtext1;
-          bright_foreground = text;
-        };
-        cursor = {
-          text = base;
-          cursor = rosewater;
-        };
-        vi_mode_cursor = {
-          text = base;
-          cursor = lavender;
-        };
-        search = {
-          matches = {
-            foreground = base;
-            background = subtext0;
-          };
-          focused_match = {
-            foreground = base;
-            background = green;
-          };
-        };
-        footer_bar = {
-          foreground = base;
-          background = subtext0;
-        };
-        hints = {
-          start = {
-            foreground = base;
-            background = peach;
-          };
-          end = {
-            foreground = base;
-            background = subtext0;
-          };
-        };
-        selection = {
-          text = base;
-          background = rosewater;
-        };
-        normal = {
-          black = surface1;
-          red = red;
-          green = green;
-          yellow = yellow;
-          blue = blue;
-          magenta = pink;
-          cyan = teal;
-          white = lavender;
-        };
-        bright = {
-          black = surface2;
-          red = red;
-          green = green;
-          yellow = yellow;
-          blue = blue;
-          magenta = pink;
-          cyan = teal;
-          white = subtext0;
-        };
-        dim = {
-          black = surface1;
-          red = red;
-          green = green;
-          yellow = yellow;
-          blue = blue;
-          magenta = pink;
-          cyan = teal;
-          white = lavender;
-        };
-        indexed_colors = [
-          { index = 16; color = peach; }
-          { index = 17; color = rosewater; }
-        ];
-      };
+      # colors = {
+      #   primary = {
+      #     background = base;
+      #     foreground = text;
+      #     dim_foreground = subtext1;
+      #     bright_foreground = text;
+      #   };
+      #   cursor = {
+      #     text = base;
+      #     cursor = rosewater;
+      #   };
+      #   vi_mode_cursor = {
+      #     text = base;
+      #     cursor = lavender;
+      #   };
+      #   search = {
+      #     matches = {
+      #       foreground = base;
+      #       background = subtext0;
+      #     };
+      #     focused_match = {
+      #       foreground = base;
+      #       background = green;
+      #     };
+      #   };
+      #   footer_bar = {
+      #     foreground = base;
+      #     background = subtext0;
+      #   };
+      #   hints = {
+      #     start = {
+      #       foreground = base;
+      #       background = peach;
+      #     };
+      #     end = {
+      #       foreground = base;
+      #       background = subtext0;
+      #     };
+      #   };
+      #   selection = {
+      #     text = base;
+      #     background = rosewater;
+      #   };
+      #   normal = {
+      #     black = surface1;
+      #     red = red;
+      #     green = green;
+      #     yellow = yellow;
+      #     blue = blue;
+      #     magenta = pink;
+      #     cyan = teal;
+      #     white = lavender;
+      #   };
+      #   bright = {
+      #     black = surface2;
+      #     red = red;
+      #     green = green;
+      #     yellow = yellow;
+      #     blue = blue;
+      #     magenta = pink;
+      #     cyan = teal;
+      #     white = subtext0;
+      #   };
+      #   dim = {
+      #     black = surface1;
+      #     red = red;
+      #     green = green;
+      #     yellow = yellow;
+      #     blue = blue;
+      #     magenta = pink;
+      #     cyan = teal;
+      #     white = lavender;
+      #   };
+      #   indexed_colors = [
+      #     { index = 16; color = peach; }
+      #     { index = 17; color = rosewater; }
+      #   ];
+      # };
     };
   };
 
@@ -552,6 +563,10 @@ in
     package = pkgs.bibata-cursors;
     name = "Bibata-Modern-Ice";
     size = 22;
+  };
+  services.mako = {
+    enable = true;
+    defaultTimeout = 10000;
   };
 
 }

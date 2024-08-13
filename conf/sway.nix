@@ -82,6 +82,7 @@ in
   # The portal interfaces include APIs for file access, opening URIs,
   # printing and others.
   services.dbus.enable = true;
+  # services.gvfs.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;

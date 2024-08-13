@@ -158,7 +158,10 @@
     fantasque-sans-mono
     nerdfonts
   ];
-  fonts.fontconfig.defaultFonts.monospace = ["FantasqueSansMono Nerd Font Mono"];
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts.monospace = ["FantasqueSansMono Nerd Font Mono"];
+  };
   environment.variables = {
     EDITOR = "nvim";
   };
@@ -195,6 +198,7 @@
     config.common.default = "*";
   };
   services.udisks2.enable = true;
+  services.devmon.enable = true;
   programs.kdeconnect.enable = true;
   # Open ports in the firewall.
   networking.firewall = { 
