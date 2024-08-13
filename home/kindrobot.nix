@@ -117,7 +117,6 @@
     Host *.wmflabs *.wikimedia.cloud
         User kindrobot
         ProxyJump bastion.wmcloud.org:22
-        SetEnv TERM=xterm-color
     
     Host town
     	Hostname tilde.town
