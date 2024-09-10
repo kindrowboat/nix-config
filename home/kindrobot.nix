@@ -15,6 +15,7 @@
     pass
     silver-searcher
     prusa-slicer
+    rclone
     tmux
     vscode
     wget
