@@ -105,13 +105,12 @@
     byobu
     chromium
     dig.dnsutils
-    element-desktop # matrix client
+    ncdu
     firefox
     gh
     gimp
     git
     git-review
-    gomuks
     google-drive-ocamlfuse
     hunspell
     hunspellDicts.en_CA
@@ -131,6 +130,7 @@
     neofetch
     neovim-qt
     nextcloud-client
+    nix-tree
     obs-studio
     opera
     python310

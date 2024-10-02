@@ -2,23 +2,18 @@
   description = "";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     vscode-server.url = "github:msteen/nixos-vscode-server";
-    lix = {
-      url = "git+https://git.lix.systems/lix-project/lix?ref=refs/tags/2.90-beta.1";
-      flake = false;
-    };
     lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module";
-      inputs.lix.follows = "lix";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, vscode-server, lix, lix-module }: 
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, vscode-server, lix-module }: 
     {
       nixosConfigurations.silverado = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -73,7 +68,6 @@
           ./conf/awesome_workstation.nix
           ./conf/sway.nix
           ./conf/epson_perfection_v19.nix
-          ./app/virtualbox.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
