@@ -79,7 +79,7 @@
     isNormalUser = true;
     description = "Stef Dunlap";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "docker" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" "libvirtd" ];
     packages = with pkgs; [ ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINrBZ07LYJFTsQgnNJrScoTd8s7a1EcSBYlPUyLlh3FS stef@kindrobot.ca" ];
   };
@@ -99,18 +99,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    openstackclient
     barrier
     blender
     byobu
     chromium
     dig.dnsutils
-    ncdu
     firefox
     gh
     gimp
     git
     git-review
+    gnome.gnome-boxes
     google-drive-ocamlfuse
     hunspell
     hunspellDicts.en_CA
@@ -123,19 +122,23 @@
     keepassxc
     killall
     kubectl
+    kubernetes-helm
     lbreakouthd
+    libqalculate
     libreoffice-qt
     libsForQt5.sonnet
     mgba
+    minikube
+    ncdu
     neofetch
     neovim-qt
     nextcloud-client
     nix-tree
     obs-studio
+    openstackclient
     opera
     python310
     python310Packages.pip
-    libqalculate
     qutebrowser
     remmina
     slack
@@ -229,4 +232,21 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
+  };
+
+  programs.virt-manager.enable = true;
 }
