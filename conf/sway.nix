@@ -100,4 +100,7 @@ in
   security.polkit.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   programs.light.enable = true;
+
+
+  security.pam.services.kindrobot.enableGnomeKeyring = true;
 }

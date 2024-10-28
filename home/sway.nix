@@ -53,16 +53,18 @@ in
 
         in
         lib.mkOptionDefault {
+          "${modifier}+Tab" = "workspace back_and_forth";
           "${modifier}+p" = "exec wofi --show run";
+          "${modifier}+Period" = "exec wofi-emoji";
+          "${modifier}+v" = "exec copyq menu";
           "XF86AudioRaiseVolume" = "exec pulsemixer --change-volume +10";
           "XF86AudioLowerVolume" = "exec pulsemixer --change-volume -10";
           "XF86AudioMute" = "exec pulsemixer --toggle-mute";
-	  "XF86MonBrightnessUp" = "exec light -A 5";
-	  "XF86MonBrightnessDown" = "exec light -U 5";
-	  "${modifier}+Print" = "exec sway-screenshot -m window";
-	  "Print" = "exec sway-screenshot -m output";
+          "XF86MonBrightnessUp" = "exec light -A 5";
+          "XF86MonBrightnessDown" = "exec light -U 5";
+          "${modifier}+Print" = "exec sway-screenshot -m window";
+          "Print" = "exec sway-screenshot -m output";
           "${modifier}+Shift+Print" = "exec sway-screenshot -m region";
-          "${modifier}+v" = "exec copyq menu";
         };
       output = {
         eDP-1 = {
@@ -121,8 +123,20 @@ in
         middle_emulation enabled
       }
 
-      bindsym Mod1+Tab workspace back_and_forth
+      for_window [ app_id="copyq" ] floating enable
+      for_window [title="^Meet - .*"] floating enable, sticky enable, resize set width 250 px
+      exec --no-startup-id gnome-keyring-daemon --start --components=secrets,ssh
       output eDP-1 background "${crust}" solid_color
+      workspace_layout tabbed
+      assign [app_id="vivaldi"] workspace 3
+      assign [app_id="Slack"] workspace 4
+      assign [app_id="chromium"] workspace 5
+      exec vivaldi
+      exec slack
+      exec chromium
+      workspace 2
+      exec alacritty
+      exec sleep 5 && nextcloud
     '';
   };
 
@@ -647,6 +661,7 @@ in
     bluetuith
     pulsemixer
     gnome.nautilus
+    wofi-emoji
   ];
 
   programs.alacritty = {
@@ -856,6 +871,8 @@ in
     name = "Bibata-Modern-Ice";
     size = 22;
   };
+
+  # notifications
   services.mako = {
     enable = true;
     defaultTimeout = 10000;

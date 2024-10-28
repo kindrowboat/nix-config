@@ -1,5 +1,10 @@
 { config, pkgs, home-manager, ... }:
 {
+  # Include the Cursor module
+  imports = [
+    ./cursor.nix
+  ];
+
   home.stateVersion = "22.11";
   home.packages = with pkgs; [
     age

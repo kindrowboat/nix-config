@@ -104,6 +104,8 @@
     byobu
     chromium
     dig.dnsutils
+    elinks
+    fd
     firefox
     gh
     gimp
@@ -136,7 +138,7 @@
     nix-tree
     obs-studio
     openstackclient
-    opera
+    parted
     python310
     python310Packages.pip
     qutebrowser
@@ -153,6 +155,7 @@
     unzip
     vivaldi
     vlc
+    weechat
     xsel
     zoom-us
     zsh
@@ -170,10 +173,10 @@
     EDITOR = "nvim";
   };
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -249,4 +252,15 @@
   };
 
   programs.virt-manager.enable = true;
+  programs.nix-ld.enable = true;
+
+  services.dnsmasq = {
+    enable = true;
+    settings = {
+      address = [ "/.nowhere/192.168.49.2" ];
+    };
+  };
+
+  networking.resolvconf.useLocalResolver = true;
+
 }
